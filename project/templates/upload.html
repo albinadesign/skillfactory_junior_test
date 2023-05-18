@@ -1,0 +1,32 @@
+
+
+<br><br>
+Download your txt file
+<br>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <br>
+    <div class="form-group">
+      <label>the word to count in the text</label>
+      <textarea class="form-control" placeholder="Write the word you want to count in the text"
+                name="wordcount" rows="3">{{wordcount}}</textarea>
+      <br><br>
+    <button type="submit">Upload and count words</button>
+  </form>
+
+
+
+{% if i %}
+<div>
+  <div>
+    <p> the amount of word "{{wordcount}}" in this text file is {{amount}}</p>
+  </div>
+</div>
+
+
+  <p><a href="{% url 'upload' %}">Reset</a></p>
+{% endif %}
+
+
+
